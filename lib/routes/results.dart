@@ -68,7 +68,7 @@ class _ResultState extends State<Results> implements AppPage {
 
   String calculateTrip({required double? distance, required double? price}) { //required but named for clarity
     if(distance != null && price != null) { //distance should never be null anyway (Navigator.pop in case of error)
-      return "€" + (distance * price / data.fuel.consume).toStringAsFixed(2);
+      return "€" + (distance * price / data.fuel.consumption).toStringAsFixed(2);
     }
     return "N/A"; //in case of error retrieving price
   }

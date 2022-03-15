@@ -17,7 +17,7 @@ class FuelType extends StatefulWidget {
 class _FuelTypeState extends State<FuelType> implements AppPage {
   static const List<String> values = <String>["Scegli un tipo di carburante", "Benzina", "Diesel", "Gas metano"]; //values[0] can't be selected as final choice
 
-  final TextEditingController fuelPrice = TextEditingController(text: "11");  //default value
+  final TextEditingController fuelConsumption = TextEditingController(text: "11");  //default value
 
   String? dropDownValue;  //current selected fuel type
 
@@ -27,7 +27,7 @@ class _FuelTypeState extends State<FuelType> implements AppPage {
 
   @override
   void nextPage() {
-    if(dropDownValue != null && dropDownValue != values[0] && fuelPrice.text.isNotEmpty) {
+    if(dropDownValue != null && dropDownValue != values[0] && fuelConsumption.text.isNotEmpty) {
       FuelEnum fuelType;  //convert text to enum fuelType choice
       if(dropDownValue == values[1]) {  //can't use switch statement non non-const values
         fuelType = FuelEnum.gasoline;
@@ -39,7 +39,7 @@ class _FuelTypeState extends State<FuelType> implements AppPage {
         fuelType = FuelEnum.lpg;
       }
 
-      final FuelInfo data = FuelInfo(fuelType, double.parse(fuelPrice.text)); //data to be sent to userPath
+      final FuelInfo data = FuelInfo(fuelType, double.parse(fuelConsumption.text)); //data to be sent to userPath
 
       Navigator.pushNamed(  //load userPath route
         context, 
@@ -107,7 +107,7 @@ class _FuelTypeState extends State<FuelType> implements AppPage {
                   Align(  //allows to change the textfield width
                     child: SizedBox(
                       child: TextField(
-                        controller: fuelPrice,  //textfield content
+                        controller: fuelConsumption,  //textfield content
                         decoration: const InputDecoration(labelText: 'Consumo'),  //placeholder
                         keyboardType: const TextInputType.numberWithOptions(signed: false, decimal: true), //for smartphone keyboard
                         inputFormatters: [

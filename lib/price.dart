@@ -9,7 +9,7 @@ const _endpoint = 'https://api.collectapi.com/gasPrice/europeanCountries';  //AP
 const _key = '5vTHUSUDfhQ3RcVmcQsRlS:6TGjH8kmiLESyG1iWXZa6l'; //API key from account at https://www.collectapi.com
 
 Future<double> requestFuelPrice(FuelInfo fuel) async {
-  if(fuel.consume <= 0) {
+  if(fuel.consumption <= 0) {
     throw const RuntimeException("Consumo del mezzo di trasposto non valido");  //should not be possible anyway due to textfield limitations
   }
 

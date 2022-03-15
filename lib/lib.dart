@@ -24,9 +24,9 @@ enum FuelEnum { //fuel type for dropdown menu
 
 class FuelInfo {  //info from fuelType route
   final FuelEnum fuelType;
-  final double consume;
+  final double consumption;
 
-  FuelInfo(this.fuelType, this.consume);
+  FuelInfo(this.fuelType, this.consumption);
 }
 
 class FullInfo {  //all necessary info (fuelType + userPath)
