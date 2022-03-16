@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 const _endpoint = 'https://api.collectapi.com/gasPrice/europeanCountries';  //API not working for other available countries (e.g. coordinates endpoint)
-const _key = '5vTHUSUDfhQ3RcVmcQsRlS:6TGjH8kmiLESyG1iWXZa6l'; //API key from account at https://www.collectapi.com
+const _key = '0qnJj0AVQTBTB2atEVFYD5:6qH3sdNHp5ZPiQlU0rgLCD'; //API key from account at https://www.collectapi.com
 
 Future<double> requestFuelPrice(FuelInfo fuel) async {
   if(fuel.consumption <= 0) {

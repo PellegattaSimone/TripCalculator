@@ -58,7 +58,7 @@ class _ResultState extends State<Results> implements AppPage {
       return numeric;  //returns a double (useful for calculateTrip method)
 
     } on Exception {
-      result = "Impossibile ottenere il prezzo del carburante al momento. Riprova";
+      result = "Impossibile ottenere il prezzo del carburante al momento, riprova";
       return null;
 
     } finally {
