@@ -1,6 +1,6 @@
 library bing_map_portals;
 
-import '/lib.dart';
+import '/includes/lib.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;

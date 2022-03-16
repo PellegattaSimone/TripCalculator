@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '/lib.dart';
-import '/maps.dart' as bing;
-import '/price.dart' as collect;
+import '/includes/lib.dart';
+import '/includes/maps.dart' as bing;
+import '/includes/price.dart' as collect;
 
 class Results extends StatefulWidget {
   static const routeName = '/fuel_type/user_path/results';  //for navigator
