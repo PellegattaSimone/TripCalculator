@@ -7,6 +7,7 @@ import '/routes/user_path.dart';
 
 class FuelType extends StatefulWidget {
   static const routeName = '/fuel_type';  //for navigator
+  static bool advancedOptions = false; //show consumption textfield (reset when back to rootPage)
 
   const FuelType({Key? key}) : super(key: key);
 
@@ -102,27 +103,42 @@ class _FuelTypeState extends State<FuelType> implements AppPage {
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Align(  //allows to change the textfield width
-                    child: SizedBox(
-                      child: TextField(
-                        controller: fuelConsumption,  //textfield content
-                        decoration: const InputDecoration(labelText: 'Consumo'),  //placeholder
-                        keyboardType: const TextInputType.numberWithOptions(signed: false, decimal: true), //for smartphone keyboard
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly, //only allow numeric values
-                          LengthLimitingTextInputFormatter(3),  //maximum of three digits
-                        ], //only numbers can be entered (in case of physical keyboard)
-                        style: const TextStyle(fontSize: 16),
+              Container(
+                child: FuelType.advancedOptions ?
+                  Row(
+                    children: [
+                      Align(  //allows to change the textfield width
+                        child: SizedBox(
+                          child: TextField(
+                            controller: fuelConsumption,  //textfield content
+                            decoration: const InputDecoration(labelText: "Consumo"),  //placeholder
+                            keyboardType: const TextInputType.numberWithOptions(signed: false, decimal: true), //for smartphone keyboard
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly, //only allow numeric values
+                              LengthLimitingTextInputFormatter(3),  //maximum of three digits
+                            ], //only numbers can be entered (in case of physical keyboard)
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          width: MediaQuery.of(context).size.width * 0.3, //textfield width
+                        ),
+                        alignment: Alignment.center,  //center the textfield inside row (MainAxisAlignment not enough)
                       ),
-                      width: MediaQuery.of(context).size.width * 0.3, //textfield width
-                    ),
-                    alignment: Alignment.center,  //center the textfield inside row (MainAxisAlignment not enough)
+                      const Text("km/L"), //label next to textfield
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ) : 
+                  Row(
+                    children: [
+                      GestureDetector(  //clickable text
+                        child: const Text(
+                          "Opzioni avanzate",
+                          style: TextStyle(color: Colors.blueGrey),
+                        ),
+                        onTap: () => setState(() => FuelType.advancedOptions = !FuelType.advancedOptions),  //show textfield and hide text
+                      ),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
                   ),
-                  const Text("km/L"), //label next to textfield
-                ],
-                mainAxisAlignment: MainAxisAlignment.center,
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

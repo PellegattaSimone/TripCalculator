@@ -31,6 +31,8 @@ class _RootPageState extends State<RootPage> implements AppPage {
 
   @override
   Widget build(BuildContext context) {
+    FuelType.advancedOptions = false; //reset textfield inside fuelType
+
     return Scaffold(
       appBar: AppBar( //at the moment same everywhere
         title: const Text("Trip Calculator"),

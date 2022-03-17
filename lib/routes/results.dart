@@ -140,7 +140,7 @@ class ResultElement extends StatelessWidget { //one of the result elements
           TextSpan(
             text: label + '\n', //label on top of actual value
             style: const TextStyle(
-              color: Colors.grey,
+              color: Colors.blueGrey,
             ),
           ),
           TextSpan(

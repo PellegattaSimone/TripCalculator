@@ -47,7 +47,7 @@ class Copyright extends StatelessWidget { //bottom credit info (displayed in eve
         children: const [
           Padding(
             child: Text(
-              "Pellegatta Simone © 2022",
+              "© 2022 Pellegatta Simone",
               style: TextStyle(color: Colors.grey),
             ),
           padding: EdgeInsets.symmetric(vertical: 20),
